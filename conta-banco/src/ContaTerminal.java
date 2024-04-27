@@ -8,7 +8,6 @@ public class ContaTerminal {
         System.out.println("Digite o número da agência: ");
         int numero = Integer.parseInt(sc.nextLine());
 
-
         System.out.println("Digite o nome da agência: ");
         String agencia = sc.nextLine();
 
