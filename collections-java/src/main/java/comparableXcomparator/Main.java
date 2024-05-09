@@ -1,10 +1,12 @@
 package main.java.comparableXcomparator;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+
+        List<Character> consoantesMeuNome = Arrays.asList('c', 'm', 'l', 'c', 'v', 'l', 'c', 'n', 't');
+        System.out.println(consoantesMeuNome);
         System.out.println("---------------------------------------");
         ArrayList<Livro> livros = new ArrayList<Livro>() {
             {

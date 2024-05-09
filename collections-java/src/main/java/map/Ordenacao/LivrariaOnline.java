@@ -27,7 +27,6 @@ public class LivrariaOnline {
 
   public Map<String, Livro> exibirLivrosOrdenadosPorPreco() {
     List<Map.Entry<String, Livro>> livrosParaOrdenarPorPreco = new ArrayList<>(livros.entrySet());
-
     Collections.sort(livrosParaOrdenarPorPreco, new ComparatorPorPreco());
 
     Map<String, Livro> livrosOrdenadosPorPreco = new LinkedHashMap<>();
@@ -53,6 +52,19 @@ public class LivrariaOnline {
     return livrosOrdenadosPorAutor;
   }
 
+  public Map<String, Livro> exibirLivrosOrdenadosPorTitulo(){
+    List<Map.Entry<String, Livro>> livrosParaOrdenarPorTitulo = new ArrayList<>(livros.entrySet());
+    Collections.sort(livrosParaOrdenarPorTitulo, new ComparatorPorTitulo());
+
+    Map<String, Livro> livrosOrdenadosPorTitulo = new LinkedHashMap<>();
+
+    for(Map.Entry<String, Livro> entry : livrosParaOrdenarPorTitulo){
+      livrosOrdenadosPorTitulo.put(entry.getKey(), entry.getValue());
+    }
+
+    return livrosOrdenadosPorTitulo;
+  }
+
   public Map<String, Livro> pesquisarLivrosPorAutor(String autor) {
     Map<String, Livro> livrosPorAutor = new LinkedHashMap<>();
     for (Map.Entry<String, Livro> entry : livros.entrySet()) {
@@ -63,6 +75,7 @@ public class LivrariaOnline {
     }
     return livrosPorAutor;
   }
+
 
   public List<Livro> obterLivroMaisCaro() {
     List<Livro> livrosMaisCaros = new ArrayList<>();
@@ -123,20 +136,29 @@ public class LivrariaOnline {
     // Exibe todos os livros ordenados por preço
     System.out.println("Livros ordenados por preço: \n" + livrariaOnline.exibirLivrosOrdenadosPorPreco());
 
+    // Exibe todos os livros ordenados por titulo
+    System.out.println();
+    System.out.println("Livros ordenados por titulo: \n" + livrariaOnline.exibirLivrosOrdenadosPorTitulo());
+
     //Exibe todos os livros ordenados por autor
+    System.out.println();
     System.out.println("Livros ordenados por autor: \n" + livrariaOnline.exibirLivrosOrdenadosPorAutor());
 
     // Pesquisa livros por autor
+    System.out.println();
     String autorPesquisa = "Josh Malerman";
     livrariaOnline.pesquisarLivrosPorAutor(autorPesquisa);
 
     // Obtém e exibe o livro mais caro
+    System.out.println();
     System.out.println("Livro mais caro: " + livrariaOnline.obterLivroMaisCaro());
 
     // Obtém e exibe o livro mais barato
+    System.out.println();
     System.out.println("Livro mais barato: " + livrariaOnline.obterLivroMaisBarato());
 
     // Remover um livro pelo título
+    System.out.println();
     livrariaOnline.removerLivro("1984");
     System.out.println(livrariaOnline.livros);
 
