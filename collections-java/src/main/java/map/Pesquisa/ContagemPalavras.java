@@ -2,6 +2,8 @@ package main.java.map.Pesquisa;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
+import java.util.function.Supplier;
 
 public class ContagemPalavras {
   //atributo
